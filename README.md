@@ -1,13 +1,13 @@
-# 🐾 pawfreak.com // the dog lair!
+# 🐾 pawfreak.com // the dog lair! 🐶
 
 <div align="center">
 
-```text
-   ___  ___ _    _____  ___ ___ ___   _   _  __
+<pre align="center">
+   ___  ___ _    _____  ___ ___ ___   _   _  __   
   / _ \/ _ \ | /| / / _// _ \/ _// _ | / |/ / / / 
- / ___/ __ | |/ |/ / _/ , _/ _/ __ |/ _ \| ' < 
-/_/  /_/ |_|__/|__/_//_/|_/___/_/ |_/_/ \_\_|\_\
-```
+ / ___/ __ | |/ |/ / _/ , _/ _/ __ |/ _ \| ' &lt;    
+/_/  /_/ |_|__/|__/_//_/|_/___/_/ |_/_/ \_\_|\_\  
+</pre>
 
 **A paw-crafted retro personal website inspired by Webcore, early-2000s aesthetics, and purple/yellow CRT dreams.**
 
@@ -102,7 +102,7 @@ pawfreak/
 ## 🌐 Connect & Say Hi
 
 - **Website:** [pawfreak.com](https://pawfreak.com)
-- **Discord:** `@axyen`
+- **Discord:** [@axyen] (https://discord.com/users/424326894083637258)
 - **Telegram:** [@fuzzybark](https://t.me/fuzzybark)
 - **GitHub:** [/fuzzybark](https://github.com/fuzzybark)
 - **Steam:** [/fuzzybark](https://steamcommunity.com/id/fuzzybark/)
