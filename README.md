@@ -1,10 +1,10 @@
-<div align="center">
+ <div align="center">
 
 <pre align="center">
-   ___  ___ _    _____  ___ ___ ___   _   _  __   
-  / _ \/ _ \ | /| / / _// _ \/ _// _ | / |/ / / / 
- / ___/ __ | |/ |/ / _/ , _/ _/ __ |/ _ \| ' &lt;    
-/_/  /_/ |_|__/|__/_//_/|_/___/_/ |_/_/ \_\_|\_\  
+   ___  ___ _    _____  ___ ___ ___   _   _  __
+  / _ \/ _ \ | /| / / _// _ \/ _// _ | / |/ / / /
+ / ___/ __ | |/ |/ / _/ , _/ _/ __ |/ _ \| ' <
+/_/  /_/ |_|__/|__/_//_/|_|\___/_/ |_/ /_/ \_\_|\
 </pre>
 
 **A paw-crafted retro personal website inspired by Webcore, early-2000s aesthetics, and purple/yellow CRT dreams.**
@@ -25,6 +25,23 @@
 
 ---
 
+## 📸 Screenshots
+
+<div align="center">
+
+<a href="light.png">
+  <img src="light.png" width="49%" alt="pawfreak.com in light mode">
+</a>
+<a href="dark.png">
+  <img src="dark.png" width="49%" alt="pawfreak.com in dark mode">
+</a>
+
+*Light Mode ← → Dark Mode*
+
+</div>
+
+---
+
 ## 🎨 Aesthetic & Themes
 
 - **Signature Palette:** Atmospheric deep purple (`#581c87`, `#a855f7`) & electric cyber yellow (`#facc15`, `#ffd84d`).
@@ -39,24 +56,30 @@
 ## ⚡ Features
 
 ### 🐶 Hamburger Mascot
-- Guardian of the lair! Clicking on **Hamburger** triggers a physical wiggle animation, and random speech bubble quotes.
+
+- Guardian of the lair! Clicking on **Hamburger** triggers a physical wiggle animation and random speech bubble quotes.
 
 ### 💻 PAW-SH // Terminal Emulator v2.0
-- An interactive in-browser CLI featuring command history (Up/Down arrows), tab autocompletion, sound effects, and 28 commands:
-  - **System & Info:** `help`, `about`, `specs`, `quirks`, `socials`, `date`, `whoami`, `echo`
-  - **Audio & Visuals:** `neofetch`, `theme`, `crt`, `sound`, `music`, `matrix`, `sl` (ASCII locomotive)
-  - **Fun & Mascots:** `pet`, `bork`, `hamburger`, `dogsay`, `cowsay`, `quote`, `sudo`, `secret`
-  - **Hidden Easter Eggs:** Secret `1987`.
+
+An interactive in-browser CLI featuring command history (Up/Down arrows), tab autocompletion, sound effects, and 28 commands:
+
+- **System & Info:** `help`, `about`, `specs`, `quirks`, `socials`, `date`, `whoami`, `echo`
+- **Audio & Visuals:** `neofetch`, `theme`, `crt`, `sound`, `music`, `matrix`, `sl` (ASCII locomotive)
+- **Fun & Mascots:** `pet`, `bork`, `hamburger`, `dogsay`, `cowsay`, `quote`, `sudo`, `secret`
+- **Hidden Easter Eggs:** Secret `1987`.
 
 ### 📻 Winamp Jukebox (Live Spotify)
+
 - Connects in real-time to the **Discord Lanyard API** over WebSocket to stream the creator's live Spotify track, album art, animated spectrum bars, and elapsed progress bar.
 - When idle or offline, the player smoothly transitions to a cozy lo-fi station (`Fuzzy Sleeping Mix 💤` by `BED / EepyFuzz`).
 
 ### 📟 Mechanical Visitor Odometer
+
 - Authentic mechanical rolling drum odometer powered by **CountAPI** to track live unique hits.
 - Built-in persistent fallback ensures the counter never glitches or resets even when browsing offline.
 
 ### 🏷️ 88x31 Pixel Badges & Freak Webring
+
 - A nostalgic cluster of classic 88x31 pixel buttons (Netscape 4.0, Valid HTML 4.01, No Cookies Just Kibble, Winamp).
 - Integrated webring navigation box linking to random corners of the indie web.
 
@@ -81,6 +104,8 @@ pawfreak/
 ├── index.html          # Semantic HTML5 layout
 ├── favicon.png         # Pixel art dog paw favicon
 ├── hamburger.png       # Official Hamburger mascot artwork
+├── light.png           # Website screenshot in light mode
+├── dark.png            # Website screenshot in dark mode
 ├── README.md           # Project overview & documentation
 ├── css/
 │   ├── style.css       # Core design tokens, theme engine & grid
