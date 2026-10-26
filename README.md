@@ -1,5 +1,3 @@
-# 🐾 pawfreak.com // the dog lair! 🐶
-
 <div align="center">
 
 <pre align="center">
@@ -102,7 +100,7 @@ pawfreak/
 ## 🌐 Connect & Say Hi
 
 - **Website:** [pawfreak.com](https://pawfreak.com)
-- **Discord:** [@axyen] (https://discord.com/users/424326894083637258)
+- **Discord:** [@axyen](https://discord.com/users/424326894083637258)
 - **Telegram:** [@fuzzybark](https://t.me/fuzzybark)
 - **GitHub:** [/fuzzybark](https://github.com/fuzzybark)
 - **Steam:** [/fuzzybark](https://steamcommunity.com/id/fuzzybark/)
