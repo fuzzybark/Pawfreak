@@ -1,90 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pawfreak</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f2f2f2;
-            color: #333;
-        }
-        header {
-            background: #ff6f61;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            letter-spacing: 2px;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        h2 {
-            border-bottom: 2px solid #ff6f61;
-            padding-bottom: 0.5rem;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #333;
-            color: white;
-        }
-        a.contact-link {
-            color: #ff6f61;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pawfreak</title>
+  <meta name="description" content="Personal retro webcore site of pawfreak. Old internet aesthetics, terminal vibes, purple & yellow CRT glow, and Hamburger the mascot.">
+  <meta name="theme-color" content="#101010">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/webcore.css">
+  <link rel="stylesheet" href="css/terminal.css">
 </head>
 <body>
-    <header>
-        <h1>pawfreak</h1>
-        <nav>
-            <a href="#about">about</a>
-            <a href="#links">links</a>
-            <a href="#contact">contact</a>
-        </nav>
-    </header>
 
-    <section id="about">
-        <h2>about me</h2>
-        <p>uhhh i'm fuzzy, i'm dog..</p>
-    </section>
+  <!-- CRT Scanlines Overlay -->
+  <div class="crt-overlay" aria-hidden="true"></div>
 
-    <section id="links">
-        <h2>links</h2>
-        <ul>
-            <li><a href="https://twitter.com/" target="@fuzzybark">twitter</a></li>
-            <li><a href="https://github.com/" target="@fuzzybark">github</a></li>
-            <li><a href="https://discord.com/" target="@axyen">discord</a></li>
-        </ul>
-    </section>
+  <!-- Top System OS Navigation Bar -->
+  <header class="retro-top-bar">
+    <div class="top-bar-branding">
+      <span class="branding-logo">PAWFREAK.SH</span>
+      <span class="branding-tagline">A delightful experience!</span>
+    </div>
+    <div class="top-bar-controls">
+      <button id="crt-toggle-btn" class="sys-btn" title="Toggle CRT Scanline Filter">
+        <span>📺</span> <span>CRT FX</span>
+      </button>
+      <button id="sound-toggle-btn" class="sys-btn" title="Toggle 8-bit Sound FX">
+        <span>🔊</span> <span>SFX: ON</span>
+      </button>
+      <button id="theme-toggle-btn" class="sys-btn" title="Toggle Dark/Light Mode">
+        <span>🌓</span> <span>THEME</span>
+      </button>
+      <div id="live-clock" class="clock-display" title="System Timestamp">0000-00-00 00:00:00</div>
+    </div>
+  </header>
 
-    <section id="contact">
-        <h2>contact</h2>
-        <p>feel free to reach out via email: <a class="contact-link" href="mailto:fuzworks@pawfreak.com">fuzworks@pawfreak.com</a></p>
-    </section>
+  <!-- Marquee Banner -->
+  <div class="marquee-container" aria-hidden="true">
+    <div class="marquee-content">
+      ★ WELCOME TO PAWFREAK.COM 2026 // DOG DIMENSION ★ UNDER ETERNAL RECONSTRUCTION ★ THROW ME, AND I'LL FETCH! ★ PET THE DOG WITH 'pet' IN TERMINAL ★ STREAMING LIVE SPOTIFY VIA LANYARD ★ NO TRACKERS, NO COOKIES, JUST KIBBLE ★ STAY WEIRD &amp; COZY ★
+    </div>
+  </div>
 
-    <footer>
-        &copy; 2026 pawfreak
+  <!-- Main Content Layout -->
+  <div class="page-wrapper">
+    <main class="main-grid">
+
+      <!-- ====================================================================
+           LEFT COLUMN: MASCOT, COUNTER, BADGES
+           ==================================================================== -->
+      <aside class="sidebar-column">
+
+        <!-- MASCOT / CHARACTER WINDOW -->
+        <section class="retro-window mascot-window" aria-labelledby="mascot-title">
+          <div class="window-header">
+            <div class="window-title" id="mascot-title">
+              <span>🐶</span> <span>HAMBURGER.EXE</span>
+            </div>
+            <div class="window-controls">
+              <span class="win-btn" title="Minimize">_</span>
+              <span class="win-btn" title="Maximize">□</span>
+              <span class="win-btn" title="Close">×</span>
+            </div>
+          </div>
+          <div class="window-body mascot-frame">
+            <div class="mascot-avatar-container" title="Click to interact with Hamburger!">
+              <img id="mascot-avatar" class="mascot-avatar" src="hamburger.png" alt="Hamburger the Character (512x512 mascot)">
+            </div>
+            <div class="mascot-speech-bubble" id="mascot-bubble" role="status">
+              <span id="mascot-bubble-text">*bork!* welcome to pawfreak.com 2026!</span>
+            </div>
+            <div class="mascot-meta">
+              <strong>Hamburger</strong> — <span>Official Fuzzy Mascot available to buy in your local store NOW!</span>
+            </div>
+            <ul class="quick-specs-list">
+              <li>
+                <span class="quick-spec-label">OS:</span>
+                <span class="quick-spec-val">FuzzyOS X (x86_64)</span>
+              </li>
+              <li>
+                <span class="quick-spec-label">Mood:</span>
+                <span class="quick-spec-val">Confuzzled</span>
+              </li>
+              <li>
+                <span class="quick-spec-label">Snack:</span>
+                <span class="quick-spec-val">FuzBurger</span>
+              </li>
+              <li>
+                <span class="quick-spec-label">Palette:</span>
+                <span class="quick-spec-val">Purple / Yellow</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- REAL VISITOR COUNTER WINDOW -->
+        <section class="retro-window counter-window" aria-labelledby="counter-title">
+          <div class="window-header">
+            <div class="window-title" id="counter-title">
+              <span>📟</span> <span>VISITOR HIT COUNTER</span>
+            </div>
+            <div class="window-controls">
+              <span class="win-btn">_</span>
+              <span class="win-btn">□</span>
+              <span class="win-btn">×</span>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="counter-box">
+              <div class="odometer-wrapper" id="visitor-odometer" aria-label="Total visitors odometer">
+                <!-- Dynamically generated drums -->
+                <div class="odometer-drum"><div class="odometer-inner"><span class="odometer-num">0</span></div></div>
+                <div class="odometer-drum"><div class="odometer-inner"><span class="odometer-num">0</span></div></div>
+                <div class="odometer-drum"><div class="odometer-inner"><span class="odometer-num">1</span></div></div>
+                <div class="odometer-drum"><div class="odometer-inner"><span class="odometer-num">3</span></div></div>
+                <div class="odometer-drum"><div class="odometer-inner"><span class="odometer-num">3</span></div></div>
+                <div class="odometer-drum"><div class="odometer-inner"><span class="odometer-num">7</span></div></div>
+              </div>
+              <div class="counter-stats-bar">
+                <div>
+                  <span class="term-dim">SESSION:</span>
+                  <strong class="term-yellow" id="session-count-val">01</strong>
+                </div>
+                <div>
+                  <span class="term-dim">STATUS:</span>
+                  <strong style="color: #4ade80;">ONLINE</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 88x31 BADGES & WEBRING WINDOW -->
+        <section class="retro-window badges-window" aria-labelledby="badges-title">
+          <div class="window-header">
+            <div class="window-title" id="badges-title">
+              <span>🏷️</span> <span>88x31 BADGES</span>
+            </div>
+            <div class="window-controls">
+              <span class="win-btn">_</span>
+              <span class="win-btn">□</span>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="badges-cluster">
+              <div class="pixel-badge badge-paw" title="Crafted with Paws">PAWFREAK<br>VER. 2.0</div>
+              <div class="pixel-badge badge-undercon" title="Always Building">UNDER<br>CONSTRUCT</div>
+              <div class="pixel-badge badge-netscape" title="Netscape Navigator">NETSCAPE<br>NOW 4.0</div>
+              <div class="pixel-badge badge-html" title="Valid HTML 4.01">HTML 4.01<br>STRICT</div>
+              <div class="pixel-badge badge-kibble" title="No tracking cookies">NO COOKIES<br>JUST KIBBLE</div>
+              <div class="pixel-badge badge-winamp" title="Winamp Jukebox">WINAMP<br>WHIPS LLAMA</div>
+            </div>
+
+            <!-- Freak Webring -->
+            <div class="webring-box">
+              <div>are we there yet?</div>
+              <div class="webring-nav">
+                <a href="#" id="webring-prev">« Prev</a>
+                <span class="term-yellow">Freak</span>
+                <a href="#" id="webring-next">Next »</a>
+                <a href="#" id="webring-random">[Random]</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- ====================================================================
+           RIGHT COLUMN: ABOUT ME, SOCIALS, SPOTIFY JUKEBOX
+           ==================================================================== -->
+      <section class="content-column">
+
+        <!-- ABOUT ME WINDOW -->
+        <article class="retro-window about-window" aria-labelledby="about-title">
+          <div class="window-header">
+            <div class="window-title" id="about-title">
+              <span>💾</span> <span>ABOUT ME // WHO_AM_I.TXT</span>
+            </div>
+            <div class="window-controls">
+              <span class="win-btn">_</span>
+              <span class="win-btn">□</span>
+              <span class="win-btn">×</span>
+            </div>
+          </div>
+          <div class="window-body">
+            <!-- Tab Navigation -->
+            <nav class="about-tabs-nav" aria-label="About tabs">
+              <button class="about-tab-btn active" data-tab="bio">Bio</button>
+              <button class="about-tab-btn" data-tab="interests">Interests</button>
+              <button class="about-tab-btn" data-tab="rig">Hardware</button>
+              <button class="about-tab-btn" data-tab="quirks">Quirks</button>
+            </nav>
+
+            <!-- Tab 1: Bio -->
+            <div class="about-tab-panel active" id="about-panel-bio">
+              <div class="about-lead-text">
+                <p>Hiya! I'm <strong>Fuzzy</strong> [any prns] I'm just a silly doggo in their early twenties, and this is my little corner in the big world wide web,,, am a goofster who makes music and tinkers with tech!</p>
+                <p>My favorite color is purple [lavender to be specific!] and more pastel shades of yellow. [i do like my colors faint hehe] I love a good burger and listening to my quirky music on Spotify! Feel free to hit me up on Telegram or Discord and ask me about it ;3</p>
+                <p>Oh, and I like to do random small projects when I'm bored! [this site is a perfect example...]</p>
+              </div>
+            </div>
+
+            <!-- Tab 2: Interests -->
+            <div class="about-tab-panel" id="about-panel-interests">
+              <h3 class="term-yellow" style="font-size: 0.9rem; font-family: var(--font-pixel); margin-bottom: 8px;">WHAT I'M INTO</h3>
+              <ul class="feature-list">
+                <li>💻 <strong>Tech:</strong> DAW's, Hardware, Linux, and much more!</li>
+                <li>🎨 <strong>Arts:</strong> Drawing, All kinds of music, I appreciate every form of expressing yourself :3</li>
+                <li>🌱 <strong>Self-improvement:</strong> Always optimizing the To-Do list, and rethinking my decisions...</li>
+                <li>🐾 <strong>Paws:</strong> no more, no less.</li>
+              </ul>
+            </div>
+
+            <!-- Tab 3: Hardware Rig -->
+            <div class="about-tab-panel" id="about-panel-rig">
+              <h3 class="term-yellow" style="font-size: 0.9rem; font-family: var(--font-pixel); margin-bottom: 8px;">FUZZY SPECS</h3>
+              <div class="rig-specs-grid">
+                <div class="rig-spec-item">
+                  <div class="rig-spec-title">Processor</div>
+                  <div>AMD Ryzen 7 5700X</div>
+                </div>
+                <div class="rig-spec-item">
+                  <div class="rig-spec-title">Graphics</div>
+                  <div>ASUS GeForce RTX 3060 Ti TUF Gaming OC <strong>(Undervolted)</strong></div>
+                </div>
+                <div class="rig-spec-item">
+                  <div class="rig-spec-title">Keybord</div>
+                  <div>Modded RK61 with Yellow Gateron Pro <em>~milky~</em> Switches!</div>
+                </div>
+                <div class="rig-spec-item">
+                  <div class="rig-spec-title">Monitors</div>
+                  <div>GIGABYTE GS25F2 24.5 <strong>[main]</strong> Acer VG240Y <strong>[side]</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 4: Quirks -->
+            <div class="about-tab-panel" id="about-panel-quirks">
+              <h3 class="term-yellow" style="font-size: 0.9rem; font-family: var(--font-pixel); margin-bottom: 8px;">WEIRD QUIRKS &amp; SYSTEM LOGS</h3>
+              <ul class="feature-list">
+                <li>Types faster than it thinks sometimes (they said it's hard to type with pagwbs??)</li>
+                <li>Reinstalls its PC OS like once a month, fix for any %bloat!</li>
+                <li>In mad love with a certain Firefox (he's hot,,,)</li>
+                <li>wait, what are YOU doing HERE???</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- SOCIAL MEDIA & PROFILE LINKS WINDOW -->
+        <section class="retro-window socials-window" aria-labelledby="socials-title">
+          <div class="window-header">
+            <div class="window-title" id="socials-title">
+              <span>📡</span> <span>CHANNELS // PLEASE_SAY_HI</span>
+            </div>
+            <div class="window-controls">
+              <span class="win-btn">_</span>
+              <span class="win-btn">□</span>
+            </div>
+          </div>
+          <div class="window-body">
+            <p class="term-dim" style="margin-bottom: 12px;">Find me here n' hit me up!:</p>
+            <div class="socials-grid" id="socials-container">
+              <!-- Populated dynamically via config.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- REAL SPOTIFY WINAMP JUKEBOX WINDOW -->
+        <section class="retro-window spotify-window" aria-labelledby="spotify-title">
+          <div class="window-header">
+            <div class="window-title" id="spotify-title">
+              <span>📻</span> <span>WINAMP JUKEBOX // NOW_PLAYING</span>
+            </div>
+            <div class="window-controls">
+              <span class="win-btn">_</span>
+              <span class="win-btn">□</span>
+              <span class="win-btn">×</span>
+            </div>
+          </div>
+          <div class="window-body">
+            <div id="spotify-player-root" class="jukebox-container is-offline">
+              <!-- Top row: Status Badge -->
+              <div class="jukebox-top-row">
+                <div id="spotify-status-badge" class="jukebox-badge idle">
+                  <span class="idle-indicator"></span>
+                  <span>IDLE / DREAMING</span>
+                </div>
+                <span class="term-dim" style="font-size: 0.8rem; font-family: var(--font-mono); letter-spacing: 1px;">♫⋆｡♪ ₊˚♬ ﾟ.</span>
+              </div>
+
+              <!-- Main Player Layout -->
+              <div class="jukebox-player-layout">
+                <div class="jukebox-art-box">
+                  <img id="spotify-album-art" class="jukebox-art-img" src="hamburger.png" alt="Album Cover">
+                </div>
+                <div class="jukebox-track-info">
+                  <div class="track-title" id="spotify-song-title">Fuzzy Sleeping Mix 💤</div>
+                  <div class="track-artist" id="spotify-song-artist">BED / EepyFuzz</div>
+                  <div class="track-album" id="spotify-song-album">I'll probably be back soon!</div>
+                </div>
+              </div>
+
+              <!-- Animated Equalizer Bars -->
+              <div class="jukebox-equalizer" aria-hidden="true">
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+              </div>
+
+              <!-- Playback Progress -->
+              <div class="progress-container">
+                <span id="spotify-time-current">01:14</span>
+                <div class="progress-track">
+                  <div id="spotify-progress-bar" class="progress-bar"></div>
+                </div>
+                <span id="spotify-time-total">03:30</span>
+              </div>
+
+              <!-- Footer Actions -->
+              <div class="jukebox-footer">
+                <a id="spotify-direct-link" href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="sys-btn" style="text-decoration: none;">
+                  <span>🎵</span> <span>Open in Spotify</span>
+                </a>
+                <span class="term-dim" style="font-size: 0.75rem;">Lanyard v1 WebSocket Ready</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- ====================================================================
+           FULL-WIDTH ROW: INTERACTIVE RETRO TERMINAL (PAW-SH)
+           ==================================================================== -->
+      <section class="retro-window terminal-window full-width-column" aria-labelledby="terminal-title">
+        <div class="window-header">
+          <div class="window-title" id="terminal-title">
+            <span>💻</span> <span>PAW-SH // TERMINAL EMULATOR v2.0</span>
+          </div>
+          <div class="window-controls">
+            <button id="terminal-btn-clear" class="win-btn" title="Clear Screen">C</button>
+            <span class="win-btn">_</span>
+            <span class="win-btn">□</span>
+            <span class="win-btn">×</span>
+          </div>
+        </div>
+
+        <!-- Terminal Output Screen -->
+        <div class="terminal-body" id="terminal-body" tabindex="0" role="region" aria-label="Terminal Screen">
+          <div id="terminal-output">
+            <!-- Greeting and command results printed here -->
+          </div>
+        </div>
+
+        <!-- Terminal Input Bar -->
+        <div class="terminal-input-bar">
+          <label for="terminal-input" class="terminal-prompt-label" id="terminal-prompt-user">pawfreak@retro-os:~$</label>
+          <input 
+            type="text" 
+            id="terminal-input" 
+            class="terminal-input-field" 
+            autocomplete="off" 
+            autocorrect="off" 
+            autocapitalize="off" 
+            spellcheck="false" 
+            placeholder="type 'help', 'neofetch', or 'pet'..."
+          >
+        </div>
+
+        <!-- Quick Command Chips for Touch & Fast Click -->
+        <div class="terminal-chips-bar">
+          <span class="chips-label">Quick shortcuts:</span>
+          <button class="cmd-chip" data-cmd="help">help</button>
+          <button class="cmd-chip" data-cmd="neofetch">neofetch</button>
+          <button class="cmd-chip" data-cmd="pet">pet</button>
+          <button class="cmd-chip" data-cmd="dogsay">dogsay</button>
+          <button class="cmd-chip" data-cmd="music">music</button>
+          <button class="cmd-chip" data-cmd="matrix">matrix</button>
+          <button class="cmd-chip" data-cmd="sl">sl</button>
+          <button class="cmd-chip" data-cmd="theme">theme</button>
+          <button class="cmd-chip" data-cmd="clear">clear</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="retro-footer">
+      <div>PAWFREAK.COM 2026 © 2000-2026 • Paw-crafted with hopes, dreams, and zero trackers!</div>
+      <div style="margin-top: 8px;">
+        <a href="#" id="back-to-top-btn" class="term-yellow">[▲ BACK TO TOP]</a>
+      </div>
     </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/counter.js"></script>
+  <script src="js/spotify.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

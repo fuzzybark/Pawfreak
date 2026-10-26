@@ -1,0 +1,384 @@
+/* ==========================================
+   pawfreak.com - stylesheet & theme engine
+   built by fuzzy :3 (purple & yellow forever)
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Share+Tech+Mono&display=swap');
+
+:root {
+  /* Dark Mode Default (#101010 base) */
+  --bg-color: #101010;
+  --bg-dots: radial-gradient(#26183a 1px, transparent 1px);
+  --surface-color: #171222;
+  --surface-alt: #201733;
+  --surface-border: #4c1d95;
+  --surface-border-glow: rgba(168, 85, 247, 0.35);
+
+  /* Signature Palette: Purple & Yellow */
+  --purple-primary: #a855f7;
+  --purple-light: #c084fc;
+  --purple-dark: #581c87;
+  --purple-deep: #1e1035;
+  --purple-glow: rgba(168, 85, 247, 0.45);
+
+  --yellow-primary: #facc15;
+  --yellow-light: #fef08a;
+  --yellow-dark: #ca8a04;
+  --yellow-glow: rgba(250, 204, 21, 0.5);
+
+  --text-main: #f3e8ff;
+  --text-muted: #a78bfa;
+  --text-dim: #715894;
+  --text-inverse: #101010;
+
+  --accent-cyan: #38bdf8;
+  --accent-pink: #f472b6;
+  --accent-red: #ef4444;
+  --accent-green: #4ade80;
+
+  /* Typography */
+  --font-mono: 'Share Tech Mono', 'VT323', Consolas, 'Lucida Console', Monaco, monospace;
+  --font-display: 'VT323', monospace;
+  --font-pixel: 'Press Start 2P', monospace;
+
+  /* Borders & Shadows */
+  --border-width: 2px;
+  --bevel-light: #7c3aed;
+  --bevel-dark: #2e1065;
+  --radius: 0px; /* Classic sharp webcore corners */
+}
+
+/* Light Mode Overrides (Vintage 90s Desktop / Retro Paper Webcore) */
+body.light-mode {
+  --bg-color: #f2eee3;
+  --bg-dots: radial-gradient(#d6cebd 1px, transparent 1px);
+  --surface-color: #fbf9f5;
+  --surface-alt: #eae4d5;
+  --surface-border: #7e22ce;
+  --surface-border-glow: rgba(126, 34, 206, 0.25);
+
+  --purple-primary: #7e22ce;
+  --purple-light: #9333ea;
+  --purple-dark: #581c87;
+  --purple-deep: #ded2f3;
+  --purple-glow: rgba(126, 34, 206, 0.3);
+
+  --yellow-primary: #ca8a04;
+  --yellow-light: #78350f;
+  --yellow-dark: #5c2503;
+  --yellow-glow: rgba(202, 138, 4, 0.4);
+
+  --text-main: #1e1329;
+  --text-muted: #581c87;
+  --text-dim: #78648c;
+  --text-inverse: #fbf9f5;
+
+  --bevel-light: #e9d5ff;
+  --bevel-dark: #6b21a8;
+}
+
+body.light-mode .clock-display {
+  background: #3b2056;
+  color: #ffd84d;
+}
+
+body.light-mode .window-header,
+body.light-mode .window-title {
+  color: #ffd84d;
+}
+
+body.light-mode .win-btn {
+  background: #4c1d95;
+  color: #ffd84d;
+  border-color: #ffd84d;
+}
+
+body.light-mode .win-btn:hover {
+  background: #ffd84d;
+  color: #1e1035;
+  border-color: #ffd84d;
+}
+
+body.light-mode .sys-btn {
+  background: #ded2f3;
+  color: #1e1329;
+  border-color: #7e22ce;
+}
+
+body.light-mode .sys-btn:hover {
+  background: #7e22ce;
+  color: #fef08a;
+  border-color: #7e22ce;
+  box-shadow: 0 0 8px rgba(126, 34, 206, 0.3);
+}
+
+body.light-mode .sys-btn.active {
+  background: #7e22ce;
+  color: #ffffff;
+  border-color: #7e22ce;
+}
+
+/* Base Document Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--bg-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: var(--bg-dots);
+  background-size: 20px 20px;
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  line-height: 1.5;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  cursor: default;
+}
+
+/* Custom Webcore Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 2px solid var(--purple-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--purple-primary);
+  border: 2px solid var(--yellow-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yellow-primary);
+  border-color: var(--purple-primary);
+}
+
+/* Links */
+a {
+  color: var(--yellow-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: all 0.15s ease;
+}
+a:hover {
+  color: var(--purple-light);
+  text-shadow: 0 0 8px var(--purple-glow);
+}
+
+/* Main Container Layout */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px 80px 16px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Top System OS Nav Bar */
+.retro-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--surface-color);
+  border-bottom: 2px solid var(--purple-primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-bar-branding {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.branding-logo {
+  font-family: var(--font-pixel);
+  font-size: 0.95rem;
+  color: var(--yellow-primary);
+  text-shadow: 0 0 6px var(--yellow-glow);
+  letter-spacing: -1px;
+}
+
+.branding-tagline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .branding-tagline {
+    display: inline;
+  }
+}
+
+.top-bar-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* System Button Styling */
+.sys-btn {
+  background: var(--surface-alt);
+  color: var(--text-main);
+  border: 2px solid var(--purple-primary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.sys-btn:hover {
+  background: var(--purple-dark);
+  color: var(--yellow-primary);
+  border-color: var(--yellow-primary);
+  box-shadow: 0 0 8px var(--yellow-glow);
+}
+
+.sys-btn:active {
+  transform: translateY(1px);
+}
+
+.sys-btn.active {
+  background: var(--purple-primary);
+  color: var(--text-inverse);
+}
+
+.clock-display {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--yellow-primary);
+  background: #000;
+  padding: 4px 8px;
+  border: 1px solid var(--purple-primary);
+  border-radius: 2px;
+}
+
+/* Responsive Grid Layout */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+@media (min-width: 880px) {
+  .main-grid {
+    grid-template-columns: 360px 1fr;
+  }
+  .full-width-column {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Toast Notifications */
+.retro-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background: var(--purple-dark);
+  color: var(--yellow-primary);
+  border: 2px solid var(--yellow-primary);
+  padding: 10px 18px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.retro-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS ENHANCEMENTS
+   ========================================================================== */
+@media (max-width: 600px) {
+  .page-wrapper {
+    padding: 0 10px 40px 10px;
+  }
+
+  .main-grid {
+    gap: 16px;
+    margin-top: 14px;
+  }
+
+  .retro-top-bar {
+    padding: 6px 10px;
+    gap: 8px;
+  }
+
+  .top-bar-branding {
+    gap: 6px;
+  }
+
+  .branding-logo {
+    font-size: 0.85rem;
+  }
+
+  .top-bar-controls {
+    gap: 4px;
+  }
+
+  .top-bar-controls .sys-btn {
+    padding: 4px 6px;
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+
+  .clock-display {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+
+  .retro-toast {
+    left: 10px;
+    right: 10px;
+    bottom: 16px;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .clock-display {
+    width: 100%;
+    text-align: center;
+    order: 10;
+    margin-top: 2px;
+  }
+}
